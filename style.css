@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 99vh;
+    color: #ffffff;
+    background-color: #000000;
+}
+
+
+
+h1 {
+    margin-bottom:0;
+}
+
+.contentWrap {
+    position: relative;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 5px auto 0 auto;
+
+}
+
+.score {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.btn{
+    background-color: rgb(43,50,209);
+    color: #ffffff;
+}
+
+.btn:nth-of-type(2){
+    background-color: rgb(0, 172, 23);
+    
+}
+
+.btn:nth-of-type(3){
+    background-color: red;
+    
+}
+
