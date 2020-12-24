@@ -6,8 +6,6 @@ let scoreOne = 0;
 let scoreTwo = 0;
 let maxPoints = 0;
 
-
-
 const btn1 = document.querySelector('#btnPl1')
 const btn2 = document.querySelector('#btnPl2')
 const btnRes = document.querySelector('#btnReset')
@@ -24,8 +22,7 @@ btn2.addEventListener('click', () => {
     color();
 })
 
-select.addEventListener('input', (e) =>{
-    console.log(e);
+select.addEventListener('input', () => {
     maxPoints = parseInt(select.value);
 })
 
