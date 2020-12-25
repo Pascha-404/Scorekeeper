@@ -29,18 +29,27 @@ h1 {
     font-weight: bold;
 }
 
-.btn{
-    background-color: rgb(43,50,209);
-    color: #ffffff;
+.buttonWrap {
+    width: 90%;
+}
+
+.buttonWrap .btn {
+    background-color: #ffffff;
+    color: #14213d;
+    width: 33%;
 }
 
 .btn:nth-of-type(2){
-    background-color: rgb(0, 172, 23);
+    background-color: #e5e5e5;
     
 }
 
 .btn:nth-of-type(3){
-    background-color: red;
+    background-color: #fca311;
     
 }
 
+.countWrap select{
+border-radius: 7px;
+margin-left: 0.2rem;
+}
