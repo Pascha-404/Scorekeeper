@@ -12,13 +12,13 @@ const btnRes = document.querySelector('#btnReset')
 
 btn1.addEventListener('click', () => {
     scoreOne++;
-    playerOne.innerText = `${scoreOne}`;
+    playerOne.textContent = scoreOne;
     color();
 })
 
 btn2.addEventListener('click', () => {
     scoreTwo++;
-    playerTwo.innerText = `${scoreTwo}`;
+    playerTwo.textContent = scoreTwo;
     color();
 })
 
