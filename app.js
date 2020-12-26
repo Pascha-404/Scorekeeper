@@ -1,50 +1,50 @@
-const playerOne = document.querySelector('.player1');
-const playerTwo = document.querySelector('.player2');
+const p1 = {
+    display: document.querySelector('.player1'),
+    score: 0,
+    btn: document.querySelector('#btnPl1')
+}
+
+const p2 = {
+    display: document.querySelector('.player2'),
+    score: 0,
+    btn: document.querySelector('#btnPl2')
+}
+
 const select = document.querySelector('#maxPoints');
-
-let scoreOne = 0;
-let scoreTwo = 0;
 let maxPoints = 3;
+let isGameOver = false;
+const btnRes = document.querySelector('#btnReset');
 
-const btn1 = document.querySelector('#btnPl1')
-const btn2 = document.querySelector('#btnPl2')
-const btnRes = document.querySelector('#btnReset')
-
-const color = () => {
-    if (scoreOne === maxPoints) {
-        playerOne.style.color = 'green';
-        playerTwo.style.color = 'red';
-        btn1.disabled = true;
-        btn2.disabled = true;
-    } else if (scoreTwo === maxPoints) {
-        playerOne.style.color = 'red';
-        playerTwo.style.color = 'green';
-        btn1.disabled = true;
-        btn2.disabled = true;
+const scoreUpdate = (player, enemy) => {
+    if (!isGameOver) {
+        player.score += 1;
+        if (player.score === maxPoints) {
+            isGameOver = true;
+            player.display.classList.add('winner');
+            enemy.display.classList.add('looser');
+            player.btn.disabled = true;
+            enemy.btn.disabled = true;
+        }
+        player.display.textContent = player.score;
     }
 }
 
 const reset = () => {
-    scoreOne = 0;
-    scoreTwo = 0;
-    playerOne.textContent = scoreOne;
-    playerTwo.textContent = scoreTwo;
-    playerOne.style.color = 'white';
-    playerTwo.style.color = 'white';
-    btn1.disabled = false;
-    btn2.disabled = false;
+    isGameOver = false;
+    for (let p of [p1, p2]) {
+        p.score = 0;
+        p.display.textContent = 0;
+        p.display.classList.remove('winner', 'looser');
+        p.btn.disabled = false;
+    }
 }
 
-btn1.addEventListener('click', () => {
-    scoreOne++;
-    playerOne.textContent = scoreOne;
-    color();
+p1.btn.addEventListener('click', () => {
+    scoreUpdate(p1, p2);
 })
 
-btn2.addEventListener('click', () => {
-    scoreTwo++;
-    playerTwo.textContent = scoreTwo;
-    color();
+p2.btn.addEventListener('click', () => {
+    scoreUpdate(p2, p1);
 })
 
 select.addEventListener('change', () => {
