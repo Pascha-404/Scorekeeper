@@ -18,6 +18,9 @@ const btnRes = document.querySelector('#btnReset');
 const scoreUpdate = (player, enemy) => {
     if (!isGameOver) {
         player.score += 1;
+        if (player.score === maxPoints && (player.score - 2) < enemy.score) {
+            maxPoints += 1;
+        }
         if (player.score === maxPoints) {
             isGameOver = true;
             player.display.classList.add('winner');
